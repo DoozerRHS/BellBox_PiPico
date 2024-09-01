@@ -6,11 +6,23 @@ project(bellbox)
 
 pico_sdk_init()
 
-add_executable(bellbox
-        main.cpp
-        servoCntrl.cpp
-        )
+set(Headers 
+        src/bellbocTiming.h
+        src/buttonPressState.h
+        src/bellRingServoPositions.h
+        src/bellRingState.h
+)
+set(Sources 
+        src/buttonPressState.cpp
+        src/main.cpp
+        src/servoCntrl.cpp
+        src/bellRingState.cpp
+)
 
+add_executable(bellbox
+        ${Sources}
+        
+        )
 
 # pull in common dependencies
 target_link_libraries(bellbox pico_stdlib hardware_pwm)
